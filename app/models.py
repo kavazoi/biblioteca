@@ -43,7 +43,7 @@ class Leitor(models.Model):
     cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF do Leitor")
 
     def __str__(self):
-        return self.name
+        return self.nome
     
     class Meta:
         verbose_name = "Leitor"
@@ -54,8 +54,7 @@ class Genero(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Gênero")
 
     def __str__(self):
-        return self.name
-    
+        return self.nome
     class Meta:
         verbose_name = "Gênero"
         verbose_name_plural = "Gêneros"
@@ -77,3 +76,18 @@ class Livro(models.Model):
     class Meta:
         verbose_name = "Livro"
         verbose_name_plural = "Livros"
+
+class Emprestimo(models.Model):
+    nome = models.ForeignKey(Leitor, on_delete=models.CASCADE, verbose_name="Reservista")
+
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, verbose_name="Livro Reservado")
+
+    data_reserva = models.DateField(verbose_name="Data da Reserva")
+    data_devolucao = models.DateField(verbose_name="Data da Devolução")
+
+    def __str__(self):
+        return f'{self.nome}, {self.livro.nome}, {self.data_reserva}, {self.data_devolucao}'
+    
+    class Meta:
+        verbose_name = 'Emprestimo'
+        verbose_name_plural = 'Emprestimos'

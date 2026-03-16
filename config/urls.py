@@ -21,5 +21,25 @@ from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('livros/', LivrosView.as_view(), name='livros'),
+
+    path('reserva/', EmprestimoView.as_view(), name='reservas'),
+
+    path('livros/delete/<int:id>/', DeleteLivroView.as_view(), name='delete'),
+
+    path('livros/editar/<int:id>/', EditarLivroView.as_view(), name='editar'),
+
     path('', IndexView.as_view(), name='index'),
+
+    path('cidade/', CidadesView.as_view(), name='cidades'),
+
+    path('autor/', AutoresView.as_view(), name='autores'),
+
+    path('editor/', EditorasView.as_view(), name='editoras'),
+
+    path('leitor/', LeitoresView.as_view(), name='leitores'),
+
+    path('genero/', GenerosView.as_view(), name='generos'),
+
 ]
