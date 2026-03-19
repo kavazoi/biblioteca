@@ -20,8 +20,7 @@
         <p>Nome: {{ livro.nome }}</p>
         <p>Autor: {{ livro.autor }}</p>
         <p>Editora: {{ livro.editora }}</p>
-        <p>Gênero: {% for genero in livro.genero.all %}{{genero.nome }}{% if not forloop.last %}, {% endif %}{% endfor
-            %}</p>
+        <p>Gênero: {% for genero in livro.genero.all %}{{genero.nome }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
         <p>Preço: R$ {{ livro.preco }}</p>
         <p>Data de Publicação: {{ livro.data_plub }}</p>
         <p>Status: {{ livro.status }}</p>
